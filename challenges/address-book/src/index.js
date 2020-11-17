@@ -5,6 +5,7 @@ export class AddressBook {
     this.contacts.push(contact);
   }
 
+
   findContactByName(filter) {
     return this.contacts.filter(c => {
       if (
@@ -44,7 +45,7 @@ export function getVcardText(contact, date = new Date()) {
     "BEGIN:VCARD",
     "VERSION:2.1",
     `N:${contact.lastName};${contact.firstName};${contact.middleName ||
-      ""};${contact.salutation || ""}`,
+    ""};${contact.salutation || ""}`,
     `FN:${getFullName(contact)}`,
     ...Object.keys(contact.phones).map(
       phName => `TEL;${phName.toUpperCase()};VOICE:${contact.phones[phName]}`
@@ -53,15 +54,11 @@ export function getVcardText(contact, date = new Date()) {
       .map(addrName => {
         const address = contact.addresses[addrName];
         if (address) {
-          return `ADR;${addrName.toUpperCase()}:;;${address.houseNumber} ${
-            address.street
-          };${address.city};${address.state};${address.postalCode};${
-            address.country
-          }\nLABEL;${addrName.toUpperCase()};ENCODING=QUOTED-PRINTABLE;CHARSET=UTF-8:${
-            address.houseNumber
-          } ${address.street}.=0D=0A=${address.city}, ${address.state} ${
-            address.postalCode
-          }=0D=0A${address.country}`;
+          return `ADR;${addrName.toUpperCase()}:;;${address.houseNumber} ${address.street
+            };${address.city};${address.state};${address.postalCode};${address.country
+            }\nLABEL;${addrName.toUpperCase()};ENCODING=QUOTED-PRINTABLE;CHARSET=UTF-8:${address.houseNumber
+            } ${address.street}.=0D=0A=${address.city}, ${address.state} ${address.postalCode
+            }=0D=0A${address.country}`;
         } else {
           return "";
         }
