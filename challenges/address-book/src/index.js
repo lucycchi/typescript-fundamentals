@@ -5,7 +5,6 @@ export class AddressBook {
     this.contacts.push(contact);
   }
 
-
   findContactByName(filter) {
     return this.contacts.filter(c => {
       if (
