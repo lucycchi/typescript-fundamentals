@@ -1,4 +1,5 @@
 export class AddressBook {
+  /** @type {any[]} */
   contacts = [];
 
   addContact(contact) {

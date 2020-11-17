@@ -8,5 +8,17 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false
   },
-  "include": ["examples/*/src", "challenges/*/src", "notes"]
+  "include": [
+    "examples/*/src",
+    "challenges/*/src",
+    "notes"
+  ],
+  "exclude": [
+    "node_modules",
+    "build",
+    "dist",
+    "examples/*/src/**/*.js",
+    "challenges/*/src/**/*.jsx",
+    "challenges/*/src/*.jsx"
+  ]
 }
